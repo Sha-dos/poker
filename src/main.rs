@@ -1,6 +1,7 @@
 mod cards;
 mod poker_error;
 mod logic;
+mod tests;
 
 use std::{fs::File, io::{self, BufRead}, path::Path};
 

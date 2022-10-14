@@ -107,7 +107,7 @@ fn get_hand_type(mut hand: Hand) -> Vec<HandType> {
     flush = hand.cards.iter().all(|&item| item.suit == first);
     //println!("Flush: {}", flush);
 
-    if hand.cards[4].card_type as u8 == 13 && hand.cards[0].card_type as u8 == 9 { vec_of_types.push(HandType::RoyalFlush) }
+    if hand.cards[4].card_type as u8 == 12 && hand.cards[0].card_type as u8 == 8 { vec_of_types.push(HandType::RoyalFlush) }
 
     if hand.cards[4].card_type as u8 - hand.cards[0].card_type as u8 == 4 { straight = true; }
 

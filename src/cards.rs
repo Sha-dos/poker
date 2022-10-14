@@ -40,14 +40,7 @@ pub enum Type {
 }
 
 impl Hand {
-    fn default() -> Hand {
-        let cards = vec![Card { card_type: Type::Null, suit: Suit::Null }];
-        Hand {
-            cards
-        }
-    }
-
-    fn new(cards: Vec<Card>) -> Hand {
+    pub fn new(cards: Vec<Card>) -> Hand {
         Hand {
             cards
         }
