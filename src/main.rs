@@ -4,16 +4,19 @@ mod logic;
 mod tests;
 
 use std::{fs::File, io::{self, BufRead}, path::Path};
+use std::time::Instant;
 
 use logic::HandType;
 
 use crate::logic::Player;
 
 fn main() {
+    let start = Instant::now();
+
     let mut total_p1 = 0;
     let mut total_p2 = 0;
 
-    let lines = read_lines("src\\poker.txt").unwrap();
+    let lines = read_lines("src/poker.txt").unwrap();
 
     for line in lines {
         let (p1, p2) = cards::parse_cards(line.unwrap()).unwrap();
@@ -29,6 +32,9 @@ fn main() {
     }
 
     println!("P1: {}, P2: {}", total_p1, total_p2);
+
+    let dur = start.elapsed();
+    println!("Completed in {}ms", dur.as_millis());
 }
 
 fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
